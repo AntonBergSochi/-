@@ -1,1 +1,363 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+				<meta charset="UTF-8">
+				<title>Заголовок страницы</title>
+				<link href="chat.css" rel="stylesheet" type="text/css">
+		  	
+</head>
+<body oncopy="return false;">
+				
+				
+				
+	      	
+	<div class="chat">
+																	<div id="bob"></div>
+													</div>
+													
+													
+													
+<div id="vvod">
+			
+<select id="He"> 
+			<option value="&#127968" >&#127968</option> 
+			<option value="&#8986">&#8986</option>
+			<option value="&#128184">&#128184</option>
+</select> 
+				
+				
+				Время:
+<select id="Se"> 
+			<option value="Сейчас" >Сейчас</option> 
+			<option value="Сегодня">Сегодня</option>
+			<option value="На Завтра">На Завтра</option>
+</select> 
+
+<select id="Me">
+   <option value="1 разнорабочий">1 разнорабочий</option> 
+			<option value="2 разнорабочих">2 разнорабочих<option>
+			<option value="3 человек.">3 человека.</option>
+			<option value="4 человек">4 человека.</option>
+			<option value="5 человек">5 человек.</option>
+			<option value="6 человек">6 человек.</option>
+			<option value="7 человек">7 человек.</option>
+			<option value="8 человек">8 человек.</option>
+			<option value="9 человек">9 человек.</option>
+			<option value="10 человек">10 человек.</option>
+</select>		<br>
+			
+			
+			
+			
+<hr>			
+				 	
+				 График: 
+<select id="Re"> 
+			<option value="С 9.00 ч.">С 9.00 ч.</option> 
+			<option value="СРОЧНО..!">СРОЧНО..!</option>
+			<option value="С 8.00 ч.">С 8.00 ч.</option>
+			<option value="С 10.00 ч.">С 10.00 ч.</option>
+</select>
+
+<select id="Vi"> 
+			<option value="до 18.00 ч.">до 18.00 ч.</option> 
+			<option value="Вам решать..!">Вам решать..!</option>
+			<option value="до 19.00 ч.">до 19.00 ч.</option>
+			<option value="до 20.00 ч.">до 20.00 ч.</option>
+</select><br>
+
+<hr>
+
+
+      Обед:
+<select id="Li"> 
+	<option value="Обед 1 час.">Обед 1 час.</option> 
+	<option  value="Обед 15 минут.">Обед 15 минут.</option>
+	<option value="Обед 30 минут.">Обед 30 минут.</option>
+</select><br>
+
+<hr>
+
+Оплата:
+<select id="Pi"> 
+	<option value="1700">1700</option> 
+	<option  value="1800">1800</option>
+	<option value="1900">1900</option>
+	<option value="2000">2000</option>
+	<option value="Оплата 2500 руб. ">Оплата 2500 руб. </option>
+</select><br>
+
+<hr>
+
+	 	Адрес: <input type="text" placeholder="пример:Хоста,ул.Туренко д.6" id="int"><br>
+				 	
+				 
+
+	
+<hr>			 
+				 
+Описание: <input type="textarea" placeholder="пример: Собирать бой в мешки, затем погрузить в камаз" id="int2">
+			
+<hr>		
+
+<input type="number" placeholder="Ваш номер телефона" id="int3">
+
+
+
+	
+<div id="but">
+<input type="button" id="click" onclick="res()" value="Отправить"/>
+</div>
+
+
+
+
+
+			</div>	 
+				 
+ 		 
+
+																					
+																					
+<script>
+let vas = [];
+let arr = [];
+let k = 0;
+
+
+var m = 0;			
+var out ="";
+var pos = 0;
+
+function res() {
+var He = document.getElementById("He").options.selectedIndex;
+
+var Se = document.getElementById("Se").options.selectedIndex;
+
+var Me = document.getElementById("Me").options.selectedIndex;
+
+var Re = document.getElementById("Re").options.selectedIndex;
+
+var Vi = document.getElementById("Vi").options.selectedIndex;
+
+var Li = document.getElementById("Li").options.selectedIndex;
+
+var Pi = document.getElementById("Pi").options.selectedIndex;
+
+<!-- Index -->
+
+var Se1 = document.getElementById("Se").options[Se].value;
+
+var Me1 = document.getElementById("Me").options[Me].value;
+
+
+var Re1 = document.getElementById("Re").options[Re].value;
+
+
+var Vi1 = document.getElementById("Vi").options[Vi].value;
+
+var Li1 = document.getElementById("Li").options[Li].value;
+
+
+var Pi1 = document.getElementById("Pi").options[Pi].value;
+
+var He1 = document.getElementById("He").options[He].value;
+
+<!-- eee -->
+
+var int= document.getElementById("int").value;
+
+var int2= document.getElementById("int2").value;
+
+var numtel = document.getElementById("int3").value;
+
+<!-- ooo -->
+var numtel2 ='">';
+var numtel3 = "</a>";
+var tel = `<a href="tel:`;
+
+
+
+
+
+var summa = tel+numtel+numtel2+numtel+numtel3;
+
+var del =`<div id="clock">0</div>`;
+
+var setka =`<div id="setka">
+<div id="fotoprofile">профиль</div>
+<div id="fotokorona">Коронка</div>
+</div>`;
+
+ 
+
+<!--  -->
+
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+var Year = date.getFullYear(); 
+var Month = date.getMonth(); 
+var Day = date.getDate();
+
+if(hours < 10)
+hours = "0" + hours;
+if(minutes < 10)
+minutes = "0" + minutes;
+if(seconds < 10)
+seconds = "0" + seconds;
+
+
+switch (Month) {
+ case 0: fMonth="января"; break; 
+ case 1: fMonth="февраля"; break; 
+ case 2: fMonth="марта"; break;
+ case 3: fMonth="апреля"; break; 
+ case 4: fMonth="мае"; break; 
+ case 5: fMonth="июня"; break; 
+ case 6: fMonth="июля"; break; 
+ case 7: fMonth="августа"; break; 
+ case 8: fMonth="сентября"; break;  case 9: fMonth="октября"; break; 
+ case 10: fMonth="ноября"; break; 
+ case 11: fMonth="декабря"; break;
+}
+
+var str = hours + ":" + minutes + ":" + seconds +"<br>"+ Day +" "+ fMonth +" "+ Year; //document.getElementById("clock").innerHTML = str + `<br>`;
+
+//console.log(typeof str);
+
+
+
+<!-- aaa -->
+
+vas.unshift(numtel);
+vas.unshift(int2);
+vas.unshift(int);
+vas.unshift(Pi1);
+vas.unshift(Li1);
+vas.unshift(Vi1);
+vas.unshift(Re1);
+vas.unshift(Me1);
+vas.unshift(Se1);
+vas.unshift(He1);
+
+//console.log(vas);
+
+
+function koks() {
+for(let i = 0; i < 1; i++) { 
+ 	       arr[i] = [];
+for(let j = 0; j < 10; j++) {
+        arr[i].push(vas[k]); 
+        k++;
+        if(k == 10) {
+          k = 0;
+        };
+			  	} 
+			}
+} 
+
+koks();
+
+
+
+
+
+
+
+var mrx =`<div id="sos">` + arr[0][0] +" "+arr[0][1]+" "+arr[0][2] + `<br> `+arr[0][3] +" "+arr[0][4] +`<br>`+arr[0][5] +`<br>`+arr[0][6]+`<br>`+arr[0][7]+`<br>`+arr[0][8] +`<br>`+summa+`<br>`+str+`<br>`+`</div>` + setka;
+
+
+
+
+
+function edf() {
+this.innerHTML = mrx;
+this.style.background = "red";
+}
+
+
+var v = 0;		
+function abc() {
+if(v == 1) {
+v = 0;
+this.style.background ="green";
+this.innerHTML ="ЗАКАЗ ОПУБЛИКОВАН"+`<br>`+`<input type="button" value="ЗАКРЫТЬ ЗАКАЗ">`;
+this.style.color ="white";
+}							
+else{
+v = 1;
+this.style.background ="red";
+this.innerHTML = "ЗАКАЗ ЗАКРЫТ"+`<br>`+`<input type="button" value="ОПУБЛИКОВАТЬ ЗАКАЗ">`;
+}
+}
+<!--  -->
+
+
+function kraz(){
+var bob = document.getElementById("bob");
+var sas = document.createElement("div");
+var kok = document.createElement("div");
+sas.classList.add("block");
+kok.classList.add("kok");
+sas.id = "block";
+kok.id = "kok";
+sas.onclick = edf;
+sas.innerHTML = mrx;
+kok.onclick = abc;
+kok.innerHTML = "ЗАКАЗ ОПУБЛИКОВАН"+"<br>"+`<input type="button" id="close" value="Закрыть заказ"/>`;
+bob.after(sas);
+sas.after(kok);
+}
+kraz();
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+<!--  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
